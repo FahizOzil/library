@@ -8,13 +8,13 @@ class database{
     $dsn = "mysql:host=localhost;port=3306;dbname=library";
     $this->connection = new PDO($dsn,$user,$pass);
     $this->connection->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
-    $this->connection->beginTransaction();
+    // $this->connection->beginTransaction();
    }
 
    function query($queryCommand , $param = []){
      $this->statment = $this->connection->prepare($queryCommand);
      $this->statment->execute($param);
-     $this->connection->commit();
+    //  $this->connection->commit();
      return $this;
    }
 
@@ -30,6 +30,7 @@ class database{
 
 }
 catch (Exception $e) {
+  
   $e->getMessage();
 
  }

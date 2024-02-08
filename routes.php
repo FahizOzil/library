@@ -9,6 +9,8 @@ $route= [
     '/login' => 'controllers/admin_panel/LoginPageController.php',
     '/register/admin' => 'controllers/admin_panel/registerPageController.php',
     "/dashboard" => "controllers/admin_panel/dashboardPage.php",
+    '/dashboard/addbook' => 'controllers/admin_panel/AddBookPageController.php',
+    '/dashboard/library' => 'controllers/admin_panel/libraryPageController.php' 
 
 ];
 
