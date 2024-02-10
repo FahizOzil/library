@@ -38,12 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (empty($error)) {
-        $db->query('INSERT INTO books(title,author_id,category_id,ISBN,copy,publish_date,language,book_image)
-            VALUES(:title, :aut,:cat,:isbn, :copy , :pd,:lang,:bimg)', [
+        $db->query('INSERT INTO books(title,author_id,category_id,ISBN,copy,language,book_image)
+            VALUES(:title, :aut,:cat,:isbn, :copy ,:lang,:bimg)', [
             'title' => $_POST['book_title'],
             'aut' => $_POST['author'],
             'cat' => $_POST['cat'],
-            'pd' => $_POST['publish_date'],
+            'pd' => date('m,d,Y'),
             'isbn' => $_POST['isbn'],
             'copy' => $_POST['copy'],
             'lang' => $_POST['lang'],

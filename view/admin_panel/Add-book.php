@@ -44,10 +44,6 @@
      
       <div class="col-md-4">
         <div class="mb-3">
-          <label for="" class="form-label">Publish Date</label>
-          <input type="text" name="publish_date" class="form-control">
-        </div>
-        <div class="mb-3">
           <label for="" class="form-label">Avaible Copy</label>
           <input type="text" name="copy" class="form-control">
         </div>

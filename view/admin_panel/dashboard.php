@@ -35,7 +35,7 @@
                     <i class="fa fa-chart-bar fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Avaible Books</p>
-                        <h6 class="mb-0"> <i class="fab fa-readme"></i> 1000</h6>
+                        <h6 class="mb-0"> <i class="fab fa-readme"></i> <?= count($all) ?>  </h6>
                     </div>
                 </div>
             </div>
@@ -102,34 +102,22 @@
                                 <th>Author</th>
                                 <th>Book ISBN</th>
                                 <th>Borrows Name</th>
-                                <th>Borrow date</th>
+                                <th>Transaction date</th>
+                                <th>Due date</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            <tr class="table-dark">
-                                <td scope="row">History Of Baloch</td>
-                                <td>Mubarak Qazi</td>
-                                <td>001222802</td>
-                                <td>Ali</td>
-                                <td>11/01/2024</td>
-                            </tr>
+                            <?php foreach ($popular as  $row) { ?>
+                                <tr class="table-dark">
+                                    <td > <?= $row['title'] ?> </td>
+                                    <td> <?= $row['author_name'] ?> </td>
+                                    <td> <?= $row['ISBN'] ?> </td>
+                                    <td> <?= $row[''] ?> </td>
+                                    <td>11/01/2024</td>
+                                </tr>
+                                <?php  }   ?>
 
-                            <tr class="table-dark">
-                                <td scope="row">Pullen Mistag</td>
-                                <td>Kareem Dad</td>
-                                <td>001433322</td>
-                                <td>Umar</td>
-                                <td>10/01/2024</td>
-                            </tr>
-
-                            <tr class="table-dark">
-                                <td scope="row">Nishan</td>
-                                <td>Gul Muhammad Wapa</td>
-                                <td>001999212</td>
-                                <td>Fahad</td>
-                                <td>08/01/2024</td>
-                            </tr>
-
+                           
                         </tbody>
                         <tfoot>
                             <h6 class="my-4"> Recent Boorows</h6>
@@ -147,25 +135,27 @@
         <div class="row">
             <h5 class="text-light my-3"> <b>Popular Books</b> </h5>
             <div class="col-md-12 d-flex justify-content-between px-5">
-
-                <div class="card" style="max-width: 18rem;">
-                    <div class="card-img-top">
-                        <img src="/images/pullen-mistaag.jfif" height="100%" width="100%" alt="">
-                    </div>
-                    <!-- card hover section  -->
-                    <div class="card-hover">
-                        <div class="icons">
-                            <span>
-                                <p class="text-light"> <i class="fas fa-eye"></i> 255 </p>
-                            </span>
-                            <span>
-                                <p class="text-light"> <i class="fas fa-pen"></i> Kareem Dad </p>
-                            </span>
-                        </div>
-
-                    </div>
-
+           <?php  foreach ($popular as  $value) { ?>
+       
+            <div class="card mx-2" style="width:18rem;">
+                <div class="card-img-top">
+                    <img src="/upload/<?= $value['book_image']?>" height="100%" width="100%" alt="">
                 </div>
+                <!-- card hover section  -->
+                <div class="card-hover">
+                    <div class="icons">
+                        <span>
+                            <p class="text-light"> <i class="fas fa-eye"></i> 255 </p>
+                        </span>
+                        <span>
+                            <p class="text-light"> <i class="fas fa-pen"></i> <?= $value['author_name'] ?> </p>
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <?php   } ?>
 
 
             </div>
