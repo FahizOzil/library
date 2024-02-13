@@ -29,8 +29,16 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-md-12 d-flex justify-content-between mt-5 mb-3">
+
+            <h2 class="text-light " > Avaible Books </h2>
+
+            <div class="d-flex">
+                <input type="search" class="form-control" name="search" placeholder="Search Books" id="searchInp">
+                <button class="btn btn-outline-light" id="searchBtn">Search</button>
+            </div>
+        </div>
         <div class="col-md-12">
-            <h2 class="text-light my-5"> Avaible Books </h2>
 
             <table class="table table-bordered table-scriped table-dark table-hover">
                 <thead>
@@ -80,9 +88,9 @@
   
  $total_page = ceil($total_records / $limit);
 
-if ($_GET['page'] > 1) {
+if ($page > 1) {
  echo  ' <li class="page-item">
- <a class="page-link" href="?page='.($_GET['page'] - 1).'" aria-label="Previous">
+ <a class="page-link" href="?page='.($page- 1).'" aria-label="Previous">
      <span aria-hidden="true">&laquo;</span>
  </a>
 </li>';
@@ -94,9 +102,9 @@ if ($_GET['page'] > 1) {
       </li>';
  }
 
- if ($_GET['page'] < $total_page) {
+ if ($page < $total_page) {
     echo ' <li class="page-item">
-    <a class="page-link" href="?page='.($_GET['page'] + 1).'" aria-label="Next">
+    <a class="page-link" href="?page='.($page + 1).'" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
     </a>
 </li>';

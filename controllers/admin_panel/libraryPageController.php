@@ -1,9 +1,9 @@
 <?php
 
-
+userlogin();
 $db = new database();
 
-$limit = 3;
+$limit = 5;
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -12,7 +12,6 @@ if (isset($_GET['page'])) {
 }
 
 $offset = ($page - 1) * $limit;
-
 
 
 $latest = $db->query("SELECT * FROM books  order by id DESC LIMIT 5")->get();
@@ -24,6 +23,7 @@ Adminview('library',[
     'all_book' => $allBook,
     'limit' => $limit,
     'total_records' => count($pagination),
+    'page' => $page,
 
 ]);
 ?>

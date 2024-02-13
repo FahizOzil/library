@@ -3,7 +3,7 @@
 class validation{
 
     static function require($string , $min , $max = INF){
-     trim($string);
+     $string = trim($string);
      return strlen($string) > $min && strlen($string) < $max;
     }
 

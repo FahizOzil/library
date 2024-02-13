@@ -1,6 +1,6 @@
 <?php
 
-
+userlogin();
 $db = new database();
 $error = [];
 
@@ -38,17 +38,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (empty($error)) {
-        $db->query('INSERT INTO books(title,author_id,category_id,ISBN,copy,language,book_image)
-            VALUES(:title, :aut,:cat,:isbn, :copy ,:lang,:bimg)', [
+        $db->query('INSERT INTO books(title,author_id,category_id,ISBN,publish_date,copy,language,book_image)
+            VALUES(:title, :aut,:cat,:isbn,:pd , :copy ,:lang,:bimg)', [
             'title' => $_POST['book_title'],
             'aut' => $_POST['author'],
             'cat' => $_POST['cat'],
-            'pd' => date('m,d,Y'),
             'isbn' => $_POST['isbn'],
+            'pd' => date('m,d,Y'),
             'copy' => $_POST['copy'],
             'lang' => $_POST['lang'],
             'bimg' => $file_name,
         ]);
+        
+        $db->query('UPDATE categorys SET post = post + 1 where categorys.id = :id',[
+            'id' => $_POST['cat'],
+        ]);   
+        
         return header('location: /dashboard');
     }
 }

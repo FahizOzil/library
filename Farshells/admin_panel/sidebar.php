@@ -28,8 +28,8 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-tag me-2"></i>Categories</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="404.html" class="dropdown-item">All Category</a>
-                            <a href="signup.html" class="dropdown-item">Add Categotry</a>
+                            <a href="/dashboard/category" class="dropdown-item">All Category</a>
+                            <a href="/dashboard/add/category" class="dropdown-item">Add Categotry</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
